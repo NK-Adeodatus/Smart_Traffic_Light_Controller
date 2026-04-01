@@ -1,4 +1,4 @@
-#include <stdlib.h> // Required for malloc()
+#include <stdlib.h> 
 
 // 1. THE DATA STRUCTURE
 struct TrafficLight {
@@ -19,7 +19,7 @@ bool manualOverride = false;
 void setup() {
     Serial.begin(9600);
 
-    // --- STEP 1: DYNAMIC MEMORY ALLOCATION (Requirement) ---
+    // --- STEP 1: DYNAMIC MEMORY ALLOCATION ---
     // We ask the Arduino for memory while the program is running
     roadA = (struct TrafficLight *)malloc(sizeof(struct TrafficLight));
     roadB = (struct TrafficLight *)malloc(sizeof(struct TrafficLight));
@@ -58,7 +58,7 @@ void loop() {
     handleSerialMenu();
 }
 
-// --- STEP 3: POINTER LOGIC (Requirement) ---
+// --- STEP 3: POINTER LOGIC ---
 void readSensors(struct TrafficLight *road) {
     if (digitalRead(road->button) == LOW) {
         road->vehicleCount++;
